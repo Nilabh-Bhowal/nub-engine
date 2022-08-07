@@ -1,0 +1,57 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "debug",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-I",
+                "include",
+                "-o",
+                "bin/debug/main",
+                "src/*.cpp",
+                "-std=c++20",
+                "-lSDL2main",
+                "-lSDL2",
+                "-lSDL2_image",
+                "-g",
+                "-Wall"
+            ],
+            "group": "build",
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent"
+            },
+            // Use the standard MS compiler pattern to detect errors, warnings and infos
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "release",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-I",
+                "include",
+                "-o",
+                "bin/release/main",
+                "src/*.cpp",
+                "-std=c++20",
+                "-lSDL2main",
+                "-lSDL2",
+                "-lSDL2_image",
+                "-03",
+                "-s"
+            ],
+            "group": "build",
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent"
+            },
+            // Use the standard MS compiler pattern to detect errors, warnings and infos
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
